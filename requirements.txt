@@ -1,4 +1,4 @@
-pinecone-client==3.0.0
-openai==1.12.0
-googletrans==4.0.0-rc1
-asyncio==3.4.3
+pinecone-client
+openai
+googletrans
+asyncio
