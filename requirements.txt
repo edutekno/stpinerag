@@ -1,4 +1,4 @@
-pinecone-client
+pinecone
 openai
 googletrans
 asyncio
