@@ -2,3 +2,5 @@ pinecone
 openai
 googletrans
 asyncio
+requests
+json
