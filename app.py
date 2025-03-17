@@ -38,8 +38,34 @@ def get_embedding(text):
     response = client.embeddings.create(input=text, model="text-embedding-ada-002")
     return response.data[0].embedding
 
-# Fungsi untuk menghasilkan respons dari model AI
+
+# Fungsi untuk menghasilkan respons dari model AI openrouter
+# Konfigurasi API OpenRouter
+OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
+OPENROUTER_API_KEY = "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"  # Ganti dengan API key Anda
+HEADERS = {
+    "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+    "Content-Type": "application/json"
+}
+
+# Fungsi untuk menghasilkan respons dari AI
 def generate_response(prompt):
+    data = {
+        "model": "google/gemma-3-12b-it:free",  # Model Gemma3
+        "messages": [{"role": "user", "content": prompt}]
+    }
+    try:
+        response = requests.post(OPENROUTER_API_URL, headers=HEADERS, json=data)
+        response.raise_for_status()  # Cek jika ada error dalam respons
+        result = response.json()
+        return result['choices'][0]['message']['content']
+    except requests.exceptions.RequestException as e:
+        return f"Error: {e}"
+
+
+
+# Fungsi untuk menghasilkan respons dari model AI Openai
+def generate_response2(prompt):
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}]
