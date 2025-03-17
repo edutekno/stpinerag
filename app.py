@@ -4,6 +4,12 @@ from openai import OpenAI
 from googletrans import Translator
 import asyncio
 
+st.set_page_config(
+        page_title="QA Solve for Happy",
+        page_icon="open_book",
+        layout="wide",
+    )
+
 # Inisialisasi Pinecone dan OpenAI
 pc = Pinecone(api_key=st.secrets["PINECONE_API_KEY"])
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
