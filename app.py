@@ -38,8 +38,8 @@ def generate_response(prompt):
     return response.choices[0].message.content
 
 # Aplikasi Streamlit
-st.title("QA Buku Solve for Happy (Mo Gawdat)")
-
+st.title("QA Buku Solve for Happy")
+st.write("(Mo Gawdat)")
 # Input pengguna
 query = st.text_input("Masukkan pertanyaan Anda:")
 if st.button("Cari"): 
