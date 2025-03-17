@@ -90,7 +90,7 @@ if st.button("Cari"):
                 # Cari di PineconeDB
                 results = index.query(
                     vector=query_vector,
-                    top_k=3,
+                    top_k=5,
                     include_metadata=True,
                     namespace="my-works"  # Ganti namespace sesuai kebutuhan Anda
                 )
