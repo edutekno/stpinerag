@@ -94,7 +94,7 @@ if st.button("Cari"):
                     vector=query_vector,
                     top_k=5,
                     include_metadata=True,
-                    namespace="my-works"  # Ganti namespace sesuai kebutuhan Anda
+                    namespace="gawdat"  # Ganti namespace sesuai kebutuhan Anda
                 )
 
                 # Ambil teks dari metadata hasil pencarian
