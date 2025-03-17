@@ -36,7 +36,7 @@ st.set_page_config(
     )
 with st.sidebar:
     #with st.echo():
-    st.write("QA Book")
+    st.write("QA Book Gemma 3")
     st.image("solve.jpeg", caption="Mo Gawdat")
 # Inisialisasi Pinecone dan OpenAI
 pc = Pinecone(api_key=st.secrets["PINECONE_API_KEY"])
