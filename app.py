@@ -11,7 +11,7 @@ st.set_page_config(
     )
 with st.sidebar:
     #with st.echo():
-    st.write("QA with Book")
+    st.write("QA Book")
 # Inisialisasi Pinecone dan OpenAI
 pc = Pinecone(api_key=st.secrets["PINECONE_API_KEY"])
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
@@ -78,7 +78,7 @@ if st.button("Cari"):
                 Berdasarkan informasi berikut (dalam bahasa Inggris):
                 {context_str}
 
-                Pertanyaan (dalam bahasa Indonesia): {query}
+                Pertanyaan (dalam bahasa Inggris): {query_en}
 
                 Tolong jawab pertanyaan di atas dalam bahasa Indonesia.
                 """
