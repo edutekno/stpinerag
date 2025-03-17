@@ -9,7 +9,9 @@ st.set_page_config(
         page_icon="open_book",
         layout="wide",
     )
-
+with st.sidebar:
+    with st.echo():
+        st.write("QA with Book")
 # Inisialisasi Pinecone dan OpenAI
 pc = Pinecone(api_key=st.secrets["PINECONE_API_KEY"])
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
