@@ -3,6 +3,9 @@ from pinecone import Pinecone
 from openai import OpenAI
 from googletrans import Translator
 import asyncio
+import requests
+import json
+
 
 st.set_page_config(
         page_title="QA Solve for Happy",
