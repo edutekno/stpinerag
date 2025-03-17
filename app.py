@@ -45,7 +45,7 @@ def get_embedding(text):
 # Fungsi untuk menghasilkan respons dari model AI openrouter
 # Konfigurasi API OpenRouter
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
-OPENROUTER_API_KEY = "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"  # Ganti dengan API key Anda
+OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]  # Ganti dengan API key Anda
 HEADERS = {
     "Authorization": f"Bearer {OPENROUTER_API_KEY}",
     "Content-Type": "application/json"
