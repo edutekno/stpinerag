@@ -115,6 +115,7 @@ if st.button("Cari"):
                 response = generate_response(prompt)
 
                 # Tampilkan hasil
+                st.write(context_str)
                 st.write("Jawaban:")
                 st.write(response)
 
