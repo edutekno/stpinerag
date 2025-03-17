@@ -14,19 +14,6 @@ HEADERS = {
     "Content-Type": "application/json"
 }
 
-# Fungsi untuk menghasilkan respons dari AI
-def generate_response(prompt):
-    data = {
-        "model": "google/gemma-3-12b-it:free",  # Model Gemma3
-        "messages": [{"role": "user", "content": prompt}]
-    }
-    try:
-        response = requests.post(OPENROUTER_API_URL, headers=HEADERS, json=data)
-        response.raise_for_status()  # Cek jika ada error dalam respons
-        result = response.json()
-        return result['choices'][0]['message']['content']
-    except requests.exceptions.RequestException as e:
-        return f"Error: {e}"
 
 
 st.set_page_config(
@@ -63,7 +50,22 @@ def get_embedding(text):
     response = client.embeddings.create(input=text, model="text-embedding-ada-002")
     return response.data[0].embedding
 
-# Fungsi untuk menghasilkan respons dari model AI
+# Fungsi untuk menghasilkan respons dari AI Openrouter
+def generate_response(prompt):
+    data = {
+        "model": "google/gemma-3-12b-it:free",  # Model Gemma3
+        "messages": [{"role": "user", "content": prompt}]
+    }
+    try:
+        response = requests.post(OPENROUTER_API_URL, headers=HEADERS, json=data)
+        response.raise_for_status()  # Cek jika ada error dalam respons
+        result = response.json()
+        return result['choices'][0]['message']['content']
+    except requests.exceptions.RequestException as e:
+        return f"Error: {e}"
+
+
+# Fungsi untuk menghasilkan respons dari model OpenAI
 def generate_response2(prompt):
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
