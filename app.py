@@ -54,7 +54,7 @@ query = st.text_input("Masukkan pertanyaan Anda:")
 if st.button("Cari"): 
     if query:
         # Tambahkan tampilan loading
-        with st.spinner("Sedang memproses pertanyaan Anda..."):
+        with st.spinner("Berpikir..."):
             try:
                 # Terjemahkan pertanyaan ke bahasa Inggris
                 query_en = translate_to_english(query)
