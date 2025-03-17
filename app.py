@@ -38,11 +38,11 @@ def generate_response(prompt):
     return response.choices[0].message.content
 
 # Aplikasi Streamlit
-st.title("Aplikasi Pencarian dengan RAG")
+st.title("QA Buku Solve for Happy (Mo Gawdat)")
 
 # Input pengguna
-query = st.text_input("Masukkan pertanyaan Anda (dalam bahasa Indonesia):")
-if st.button("Cari"):
+query = st.text_input("Masukkan pertanyaan Anda:")
+if st.button("Cari"): 
     if query:
         # Tambahkan tampilan loading
         with st.spinner("Sedang memproses pertanyaan Anda..."):
@@ -79,7 +79,7 @@ if st.button("Cari"):
                 response = generate_response(prompt)
 
                 # Tampilkan hasil
-                st.write("Jawaban AI:")
+                st.write("Jawaban:")
                 st.write(response)
 
             except Exception as e:
