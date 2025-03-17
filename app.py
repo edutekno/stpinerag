@@ -4,7 +4,6 @@ from openai import OpenAI
 from googletrans import Translator
 import asyncio
 
-
 st.set_page_config(
         page_title="QA Solve for Happy",
         page_icon="open_book",
@@ -12,8 +11,8 @@ st.set_page_config(
     )
 with st.sidebar:
     #with st.echo():
-    #st.write("QA Book")
-    st.image("solve.jpeg", caption="Solve for Happy - Mo Gawdat")
+    st.write("QA Book")
+    st.image("solve.jpeg", caption="Mo Gawdat")
 # Inisialisasi Pinecone dan OpenAI
 pc = Pinecone(api_key=st.secrets["PINECONE_API_KEY"])
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
@@ -39,8 +38,7 @@ def get_embedding(text):
     response = client.embeddings.create(input=text, model="text-embedding-ada-002")
     return response.data[0].embedding
 
-
-# Fungsi untuk menghasilkan respons dari model AI Openai
+# Fungsi untuk menghasilkan respons dari model AI
 def generate_response(prompt):
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -56,7 +54,7 @@ query = st.text_input("Masukkan pertanyaan Anda:")
 if st.button("Cari"): 
     if query:
         # Tambahkan tampilan loading
-        with st.spinner("Berpikir..."):
+        with st.spinner("Sedang memproses pertanyaan Anda..."):
             try:
                 # Terjemahkan pertanyaan ke bahasa Inggris
                 query_en = translate_to_english(query)
