@@ -11,8 +11,8 @@ st.set_page_config(
     )
 with st.sidebar:
     #with st.echo():
-    st.write("QA Book")
-    st.image("solve.jpeg", caption="Mo Gawdat")
+    #st.write("QA Book")
+    st.image("solve.jpeg", caption="Solve for Happy - Mo Gawdat")
 # Inisialisasi Pinecone dan OpenAI
 pc = Pinecone(api_key=st.secrets["PINECONE_API_KEY"])
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
