@@ -3,8 +3,6 @@ from pinecone import Pinecone
 from openai import OpenAI
 from googletrans import Translator
 import asyncio
-import requests
-import json
 
 
 st.set_page_config(
@@ -51,24 +49,8 @@ HEADERS = {
     "Content-Type": "application/json"
 }
 
-# Fungsi untuk menghasilkan respons dari AI
-def generate_response(prompt):
-    data = {
-        "model": "google/gemma-3-12b-it:free",  # Model Gemma3
-        "messages": [{"role": "user", "content": prompt}]
-    }
-    try:
-        response = requests.post(OPENROUTER_API_URL, headers=HEADERS, json=data)
-        response.raise_for_status()  # Cek jika ada error dalam respons
-        result = response.json()
-        return result['choices'][0]['message']['content']
-    except requests.exceptions.RequestException as e:
-        return f"Error: {e}"
-
-
-
 # Fungsi untuk menghasilkan respons dari model AI Openai
-def generate_response2(prompt):
+def generate_response(prompt):
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}]
