@@ -40,15 +40,6 @@ def get_embedding(text):
     return response.data[0].embedding
 
 
-# Fungsi untuk menghasilkan respons dari model AI openrouter
-# Konfigurasi API OpenRouter
-OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
-OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]  # Ganti dengan API key Anda
-HEADERS = {
-    "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-    "Content-Type": "application/json"
-}
-
 # Fungsi untuk menghasilkan respons dari model AI Openai
 def generate_response(prompt):
     response = client.chat.completions.create(
