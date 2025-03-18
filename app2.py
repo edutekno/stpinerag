@@ -108,7 +108,7 @@ if st.button("Cari"):
 
                 Pertanyaan (dalam bahasa Inggris): {query_en}
 
-                Tolong jawab pertanyaan di atas dalam bahasa Indonesia.
+                Tolong jawab pertanyaan di atas dalam bahasa Indonesia secara lengkap dan komprehensif.
                 """
 
                 # Dapatkan respons dari model AI
