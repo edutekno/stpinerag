@@ -28,7 +28,7 @@ with st.sidebar:
 # Inisialisasi Pinecone dan OpenAI
 pc = Pinecone(api_key=st.secrets["PINECONE_API_KEY"])
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-index_name = "mydb"  # Ganti dengan nama index Anda
+index_name = "mydbbook"  # Ganti dengan nama index Anda
 index = pc.Index(index_name)
 
 # Fungsi asynchronous untuk menerjemahkan teks ke bahasa Inggris
